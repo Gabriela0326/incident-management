@@ -18,16 +18,16 @@ annotate service.Incidents with @(
     },
     UI.Facets : [
         {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
-        },
-        {
             $Type : 'UI.CollectionFacet',
             Label : '{i18n>Overviw}',
             ID : 'i18nOverviw',
             Facets : [
+                {
+                    $Type : 'UI.ReferenceFacet',
+                    ID : 'GeneratedFacet1',
+                    Label : 'General Information',
+                    Target : '@UI.FieldGroup#GeneratedGroup',
+                },
                 {
                     $Type : 'UI.ReferenceFacet',
                     Label : '{i18n>Details}',
@@ -118,6 +118,10 @@ annotate service.Incidents with {
                     $Type : 'Common.ValueListParameterDisplayOnly',
                     ValueListProperty : 'email',
                 },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'phone',
+                },
             ],
         },
         Common.ValueListWithFixedValues : true,
@@ -126,7 +130,7 @@ annotate service.Incidents with {
 
 annotate service.Incidents with {
     status @(
-        Common.Label : 'status_code',
+        Common.Label : '{i18n>Status}',
         Common.ExternalID : status.descr,
         Common.ValueListWithFixedValues : true,
     )
